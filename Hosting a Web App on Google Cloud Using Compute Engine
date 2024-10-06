@@ -181,3 +181,21 @@ rm -rf monolith-to-microservices/*/node_modules
 gsutil -m cp -r monolith-to-microservices gs://fancy-store-$DEVSHELL_PROJECT_ID/
 gcloud compute instance-groups managed rolling-action replace fancy-fe-mig \
     --max-unavailable=100%
+
+
+For those who are getting stuck in Task 8, do this - 
+
+1. Run the first command to modify the machine type -
+
+gcloud compute instances set-machine-type frontend \
+  --zone=$ZONE \
+  --machine-type e2-small
+
+2. Run the new instance template command with a modified instance template name - 
+
+gcloud compute instance-templates create fancy-fe-neww \
+    --region=$REGION \
+    --source-instance=frontend \
+    --source-instance-zone=$ZONE
+
+This should solve the error.
