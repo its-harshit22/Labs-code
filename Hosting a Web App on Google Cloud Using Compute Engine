@@ -1,7 +1,7 @@
-commad 1:
+commad 1st:
 export ZONE=us-central1-c
 
-Command 2:
+Command 2nd:
 gcloud config set compute/zone $ZONE
 gcloud services enable compute.googleapis.com
 gsutil mb gs://fancy-store-$DEVSHELL_PROJECT_ID
