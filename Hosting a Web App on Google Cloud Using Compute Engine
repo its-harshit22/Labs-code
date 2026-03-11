@@ -1,4 +1,6 @@
 commad 1st:
+export ZONE=us-central1-a
+export ZONE=us-central1-b
 export ZONE=us-central1-c
 
 Command 2nd:
