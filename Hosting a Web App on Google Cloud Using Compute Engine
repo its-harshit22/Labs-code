@@ -1,9 +1,9 @@
 commad 1st:
-export ZONE=us-central1-a
+export ZONE=us-central1-b
 
 
 Command 2nd:
-gcloud config set compute/zone $ZONE a
+gcloud config set compute/zone $ZONE b
 gcloud services enable compute.googleapis.com
 gsutil mb gs://fancy-store-$DEVSHELL_PROJECT_ID
 git clone https://github.com/googlecodelabs/monolith-to-microservices.git
@@ -20,7 +20,7 @@ gcloud compute instances create backend \
     --machine-type=e2-medium \
     --tags=backend \
    --metadata=startup-script-url=https://storage.googleapis.com/fancy-store-$DEVSHELL_PROJECT_ID/startup-script.sh
-gcloud compute instances list
+gcloud compute instances list b
 export EXTERNAL_IP=$(gcloud compute instances describe backend --zone=$ZONE --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
 cd ~/monolith-to-microservices/react-app
 rm -f .env
